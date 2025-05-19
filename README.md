@@ -35,13 +35,13 @@ Créer une **segmentation RFM métier** :
 
 ### 🟣 Results
 
-| Segment | % Clients | CA total (€) | Fréquence moy. | Panier moyen (€) | Reco CRM                              |
-| ------- | --------- | ------------ | -------------- | ---------------- | ------------------------------------- |
-| Platine | 16 %      | 215 543 €    | 2,96           | 202 €            | Fidélisation haut de gamme            |
-| Gold    | 21 %      | 200 889 €    | 1,91           | 141 €            | Engagement prioritaire                |
-| Silver  | 30 %      | 144 117 €    | 1,15           | 72 €             | Potentiel de croissance               |
-| Bronze  | 25 %      | 62 235 €     | 1,00           | 38 €             | Activation par promo                  |
-| Iron    | 7 %       | 8 461 €      | 1,19           | 19 €             | À exclure ou réactiver ponctuellement |
+| Segment | % Clients | CA total (€) | Fréquence moy. | Panier moyen (€) | Reco CRM                                                      |
+| ------- | --------- | ------------ | -------------- | ---------------- | --------------------------------------------------------------|
+| Platine | 16 %      | 215 543 €    | 2,96           | 202 €            | Programme de fidélité, club VIP, pré-lancement                |
+| Gold    | 21 %      | 200 889 €    | 1,91           | 141 €            | Offres personnalisées, cumul points, relance douce            |
+| Silver  | 30 %      | 144 117 €    | 1,15           | 72 €             | Booster panier moyen (seuils, cross-sell)                     |
+| Bronze  | 25 %      | 62 235 €     | 1,00           | 38 €             | Activation par promo, Offres simples, réactivation automatique|
+| Iron    | 7 %       | 8 461 €      | 1,19           | 19 €             | À exclure ou réactiver ponctuellement                         |
 
 ---
 

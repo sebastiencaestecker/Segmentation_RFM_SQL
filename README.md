@@ -1,15 +1,15 @@
-## 🧠 Projet : **Segmentation RFM Client via SQL sur BigQuery**
+##Projet : **Segmentation RFM Client via SQL sur BigQuery**
 
 ---
 
-### 🟢 Situation
+### Situation
 
 L’entreprise souhaite mieux comprendre la valeur de ses clients afin de cibler ses campagnes marketing avec plus d’efficacité.
 Le contexte est celui d’un retailer en ligne (dataset `thelook_ecommerce`) utilisant des données transactionnelles sur les 4 derniers mois.
 
 ---
 
-### 🟡 Task
+###  Task
 
 Créer une **segmentation RFM métier** :
 
@@ -19,44 +19,31 @@ Créer une **segmentation RFM métier** :
 
 ---
 
-### 🔵 Actions
+###  Actions
 
-#### 🔹 1. **Préparation des données sous BigQuery SQL**
+*  **Agrégation SQL** : j’ai utilisé `GROUP BY`, `DATE_DIFF()` et des filtres temporels pour isoler les clients actifs sur les 4 derniers mois.
+*  **Calcul des quartiles** via `PERCENTILE_CONT()` pour découper la population selon la **valeur réelle**, et non pas par rang.
+* **Scoring RFM** : chaque client a reçu un score de 1 à 4 sur **Récence**, **Fréquence**, et **Montant d’achat**, combiné ensuite pour créer un **score total RFM**.
+*  **Attribution d’un statut client** selon des seuils métier :
 
-* Agrégation des commandes : `recency`, `frequency`, `monetary`
-* Périmètre : clients actifs sur les 4 derniers mois
-
-#### 🔹 2. **Découpage intelligent via `PERCENTILE_CONT()`**
-
-* Découpage des variables R/F/M en **quartiles réels** (`qcut` logique)
-* Attribution de **scores de 1 à 4** pour chaque dimension
-* Utilisation de `CROSS JOIN` pour appliquer les seuils à chaque client
-
-#### 🔹 3. **Attribution d’un score RFM global + statut CRM**
-
-```sql
-CASE
-  WHEN r_score + f_score + m_score >= 10 THEN 'Platine'
-  WHEN ... THEN 'Gold' ...
-```
-
-#### 🔹 4. **Analyse des segments clients**
-
-* Regroupement par statut
-* Calcul du chiffre d’affaires par segment
-* Part de clients et panier moyen via SQL analytique
+  * `>= 10` → Platine
+  * `>= 8` → Gold
+  * `>= 6` → Silver
+*  **Analyse finale** du CA par segment, du volume de clients, et du panier moyen
 
 ---
 
 ### 🟣 Results
 
-| Segment | CA total  | % clients | Fréquence moy. | Panier moyen |
-| ------- | --------- | --------- | -------------- | ------------ |
-| Platine | 215 543 € | 16 %      | 2,96           | 202,58 €     |
-| Gold    | 200 889 € | 22 %      | 1,91           | 141,17 €     |
-| Silver  | 144 117 € | 30 %      | 1,15           | 72,34 €      |
-| Bronze  | 62 235 €  | 25 %      | 1,00           | 38,01 €      |
-| Iron    | 8 461 €   | 7 %       | 1,19           | 19,06 €      |
+| Segment | % Clients | CA total (€) | Fréquence moy. | Panier moyen (€) | Reco CRM                              |
+| ------- | --------- | ------------ | -------------- | ---------------- | ------------------------------------- |
+| Platine | 16 %      | 215 543 €    | 2,96           | 202 €            | Fidélisation haut de gamme            |
+| Gold    | 21 %      | 200 889 €    | 1,91           | 141 €            | Engagement prioritaire                |
+| Silver  | 30 %      | 144 117 €    | 1,15           | 72 €             | Potentiel de croissance               |
+| Bronze  | 25 %      | 62 235 €     | 1,00           | 38 €             | Activation par promo                  |
+| Iron    | 7 %       | 8 461 €      | 1,19           | 19 €             | À exclure ou réactiver ponctuellement |
+
+---
 
 #### 🎯 Insights business :
 
@@ -71,5 +58,6 @@ CASE
 * 🧠 SQL complet exécuté sur BigQuery (RFM scoring + statuts + CA par segment)
 * 📊 Tableau final interprétable par l’équipe marketing
 * 📈 Recommandations activables CRM par statut
+
 
 

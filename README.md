@@ -1,8 +1,3 @@
-Parfait. Voici une version **propre, claire et orientée portfolio** de ton projet RFM avec BigQuery, au format **STAR** (Situation, Task, Action, Result).
-📦 À copier-coller sur ton GitHub ou dans ton portfolio Notion / PDF.
-
----
-
 ## 🧠 Projet : **Segmentation RFM Client via SQL sur BigQuery**
 
 ---

@@ -77,7 +77,4 @@ CASE
 * 📊 Tableau final interprétable par l’équipe marketing
 * 📈 Recommandations activables CRM par statut
 
----
 
-
-Souhaites-tu que je te rédige aussi le `README.md` GitHub prêt à copier-coller ou te prépare une version markdown directement ?
